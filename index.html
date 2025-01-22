@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & Student Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Role Selection -->
+    <div class="panel" id="role-selection-panel">
+        <h1>Role</h1>
+        <input type="text" id="role-input" placeholder="Enter Your role" />
+        <button onclick="handleLogin()">Continue</button>
+    </div>
+      
+    <!-- Student Dashboard -->
+    <div class="panel dashboard" id="student-dashboard" style="display: none;">
+      <h1>Student Dashboard</h1>
+      <select id="branch-select" onchange="showStudentList()">
+        <option value="" disabled selected>Select Your Branch</option>
+        <option value="MCA">MCA</option>
+        <option value="BCA">BCA</option>
+        <option value="BBA">BBA</option>
+        <option value="BCOM">BCOM</option>
+        <option value="BTECH">BTECH</option>
+      </select>
+      <div id="student-list"></div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div class="panel dashboard" id="admin-dashboard" style="display: none;">
+      <h1>Admin Dashboard</h1>
+      <select id="admin-branch-select" onchange="showAdminList()">
+        <option value="" disabled selected>Select a Branch</option>
+        <option value="MCA">MCA</option>
+        <option value="BCA">BCA</option>
+        <option value="BBA">BBA</option>
+        <option value="BCOM">BCOM</option>
+        <option value="BTECH">BTECH</option>
+      </select>
+      <div id="admin-list"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

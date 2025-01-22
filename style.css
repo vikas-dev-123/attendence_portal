@@ -1,0 +1,271 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+input {
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #2575fc;
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+button {
+    width: 80%;
+    padding: 14px;
+    border: none;
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .panel {
+        width: 90%;
+        padding: 20px 30px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    input, button {
+        width: 100%;
+    }
+}
+
+/* Student List & Attendance Buttons */
+#student-list ul {
+    list-style-type: none;
+    padding: 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#student-list li {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+#student-list li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.attendance button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.attending-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.not-attending-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.attendance button:hover {
+    transform: scale(1.05);
+}
+
+.attending-btn:hover {
+    background-color: #45a049;
+}
+
+.not-attending-btn:hover {
+    background-color: #e53935;
+}
+
+/* Admin List */
+#admin-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#admin-list li {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#admin-list li span {
+    font-weight: bold;
+}
+
+#admin-list li:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    #student-list li, #admin-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .attendance button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+/* Styling the select box */
+select {
+    width: 80%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Custom arrow for the select box */
+select::-ms-expand {
+    display: none; /* Remove default arrow in IE */
+}
+
+select::after {
+    content: ' ▼';
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Styling the dropdown options */
+select option {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover effect for the options */
+select option:hover {
+    background-color: #2575fc;
+    color: #fff;
+}
+
+/* Focus effect */
+select:focus {
+    border-color: #2575fc;
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+
+/* Custom scrollbar for better interactivity */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2575fc;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #6a11cb;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
