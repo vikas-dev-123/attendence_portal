@@ -182,14 +182,16 @@ function handleLogin() {
     if (branch && attendanceData[branch]) {
       const ul = document.createElement("ul");
   
-      // Filter out undefined or null attendance data
-      const validAttendance = attendanceData[branch].filter(att => att.name && att.attendance !== null && att.attendance !== undefined);
+      // Filter out undefined or null attendance data and invalid names (like BCA1, BCA2)
+      const validAttendance = attendanceData[branch].filter(att => att.name && att.attendance !== null && att.attendance !== undefined && !att.name.startsWith('BCA') && !att.name.startsWith('MCA') && !att.name.startsWith('BBA') && !att.name.startsWith('BCOM') && !att.name.startsWith('BTECH'));
   
       if (validAttendance.length > 0) {
         validAttendance.forEach((att) => {
           const li = document.createElement("li");
+          // Check if rollNumber exists, else display 'N/A'
+          const rollNumberText = att.rollNumber ? att.rollNumber : "N/A";
           li.innerHTML = `
-            <span>${att.name} (${att.rollNumber}) - ${att.attendance}</span>
+            <span>${att.name} (${rollNumberText}) - ${att.attendance}</span>
           `;
           ul.appendChild(li);
         });
@@ -198,4 +200,7 @@ function handleLogin() {
         adminList.innerHTML = "<p>No attendance data available.</p>";
       }
     }
-  }
+}
+ 
+
+   
