@@ -155,10 +155,11 @@ button:active {
     background-color: #e53935;
 }
 
-/* Admin List */
 #admin-list ul {
     list-style-type: none;
     padding: 0;
+    max-height: 300px; /* Limit height */
+    overflow-y: auto;  /* Enable scroll when content exceeds max-height */
 }
 
 #admin-list li {
@@ -173,13 +174,10 @@ button:active {
     align-items: center;
 }
 
-#admin-list li span {
-    font-weight: bold;
-}
-
 #admin-list li:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
+
 
 @media (max-width: 768px) {
     #student-list li, #admin-list li {
